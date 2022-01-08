@@ -1,16 +1,12 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May  5 17:57:17 2021
-
-@author: NTayl
-"""
 from PIL import Image
 import numpy as np
 import sys
 
-fn = input("filename:")
+fn = input("filename(no extension, png only):")
+ext = ".png"
+full_fn = "%s%s" %(fn, ext)
 np.set_printoptions(threshold=sys.maxsize)
-img = Image.open(fn).convert('L')
+img = Image.open(full_fn).convert('L')
 
 np_img = np.array(img)
 np_img = ~np_img  # invert B&W
